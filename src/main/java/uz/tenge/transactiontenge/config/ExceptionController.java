@@ -1,8 +1,6 @@
 
 package uz.tenge.transactiontenge.config;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,7 +30,7 @@ public class ExceptionController {
     }
 
     @ExceptionHandler({Throwable.class})
-    Mono<ResponseEntity<?>> handleOtherErrors(Exception ex, HttpServletRequest request, HttpServletResponse response) {
+    Mono<ResponseEntity<?>> handleOtherErrors(Exception ex) {
         log.error(ex.getMessage(), ex.getStackTrace());
 
         return Mono.just(ResponseEntity.status(HttpStatus.NOT_FOUND)

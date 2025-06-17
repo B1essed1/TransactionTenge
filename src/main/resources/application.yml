@@ -18,15 +18,16 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
 
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-    properties:
-      hibernate:
-        format_sql: true
+
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/main-changelog.xml
+    url: jdbc:postgresql://localhost:5432/mydb
+    user: user
+    password: password
 
 logging:
   level:
     org.apache.kafka: debug
     org.hibernate.SQL: DEBUG
+    liquibase: debug

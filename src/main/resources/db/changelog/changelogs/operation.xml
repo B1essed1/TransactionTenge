@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.24.xsd">
+
+
+    <changeSet id="operation creation table" author="Shohdiyor Toshtemirov">
+        <createTable tableName="operation">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="operation_id" type="varchar(255)"/>
+            <column name="amount" type="bigint"/>
+            <column name="created_at" type="DATETIME"/>
+            <column name="status" type="varchar(255)"/>
+            <column name="type" type="varchar(255)"/>
+            <column name="user_id" type="bigint"/>
+            <column name="sender" type="varchar"/>
+            <column name="recipient" type="varchar"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
