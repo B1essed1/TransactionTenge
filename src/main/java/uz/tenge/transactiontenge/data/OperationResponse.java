@@ -2,6 +2,7 @@ package uz.tenge.transactiontenge.data;
 
 import lombok.Getter;
 import lombok.Setter;
+import uz.tenge.transactiontenge.entity.Operation;
 
 @Getter
 @Setter
