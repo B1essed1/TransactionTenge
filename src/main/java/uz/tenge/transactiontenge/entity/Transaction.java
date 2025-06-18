@@ -36,6 +36,7 @@ public class Transaction {
         transaction.setRecipient(request.getRecipient());
         transaction.setStatus(TRANSACTION_STATUS.PENDING);
         transaction.setRrn(UUID.randomUUID().toString());
+        transaction.setTransactionId(UUID.randomUUID().toString());
         return transaction;
     }
 }

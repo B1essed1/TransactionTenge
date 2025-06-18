@@ -2,6 +2,7 @@ package uz.tenge.transactiontenge.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 import uz.tenge.transactiontenge.data.TransactionRequest;
 import uz.tenge.transactiontenge.enums.OPERATION_STATUS;
@@ -14,6 +15,7 @@ import java.util.UUID;
 @Getter
 @Setter
 public class Operation {
+    @Id
     private Long id;
     private OPERATION_TYPE type;
     private Long amount;

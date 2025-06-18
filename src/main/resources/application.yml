@@ -10,13 +10,15 @@ spring:
   kafka:
     bootstrap-servers: localhost:9092
     consumer:
-      group-id: my-group
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "uz.tenge.transactiontenge.data"
+        spring.json.use.type.headers: true
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 
 
   liquibase:
@@ -28,6 +30,10 @@ spring:
 
 logging:
   level:
-    org.apache.kafka: debug
-    org.hibernate.SQL: DEBUG
-    liquibase: debug
+    org.apache.kafka: INFO
+    org.hibernate.SQL: INFO
+    liquibase: INFO
+    io.r2dbc.postgresql.QUERY: INFO
+    io.r2dbc.postgresql.PARAM: INFO
+    org.springframework.r2dbc.core: INFO
+    org.springframework.data.r2dbc.core: INFO

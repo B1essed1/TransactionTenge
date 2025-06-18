@@ -4,9 +4,11 @@ import lombok.Getter;
 import lombok.Setter;
 import uz.tenge.transactiontenge.entity.Transaction;
 
+import java.io.Serializable;
+
 @Getter
 @Setter
-public class H2HKafkaPayload {
+public class H2HKafkaPayload implements Serializable {
     private String sender;
     private String receiver;
     private String rrn;
