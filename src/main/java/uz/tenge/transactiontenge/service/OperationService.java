@@ -11,6 +11,7 @@ import uz.tenge.transactiontenge.entity.Transaction;
 import uz.tenge.transactiontenge.enums.OPERATION_STATUS;
 import uz.tenge.transactiontenge.enums.OPERATION_TYPE;
 import uz.tenge.transactiontenge.enums.TRANSACTION_STATUS;
+import uz.tenge.transactiontenge.exception.ExceptionWithStatusCode;
 import uz.tenge.transactiontenge.repository.OperationRepository;
 import uz.tenge.transactiontenge.repository.TransactionRepository;
 
@@ -48,7 +49,13 @@ public class OperationService {
 
     private OPERATION_TYPE getOperationType(TransactionRequest request) {
         // todo there is a operation type validations sender and receiver card type
+        if (request.getSender().length() !=16){
+            throw new ExceptionWithStatusCode("sender.length.not.correct");
+        }
 
+        if (request.getRecipient().length() !=16){
+            throw new ExceptionWithStatusCode("recipient.length.not.correct");
+        }
         return OPERATION_TYPE.H2H;
     }
 
